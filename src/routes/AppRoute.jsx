@@ -1,22 +1,39 @@
-
-import {BrowserRouter, Routes, Route} from 'react-router'
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router'
+import Home from '../pages/Home'
+import About from '../pages/About'
+import Dashboard from '../pages/admin/Dashboard'
+import Manage from '../pages/admin/Manage'
+import NotFound from   '../pages/NotFound'
 
 const AppRoute = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public*/}
-        <Route path="/" element={<h1>Home page</h1>} />
-        <Route path="about" element={<h1>About page</h1>} />
-        
-        {/* Private */}
-        <Route path='admin'>
-          <Route index element={<p>Admin page</p>} />
-          <Route path="dashboard" element={<p>Dashboard page</p>} />
-          <Route path="manager" element={<p>Manager page</p>} />
+
+        {/* Public */}
+        <Route element={
+          <>
+            <h1>Navbar</h1>
+            <Outlet />
+          </>
+        }>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
         </Route>
 
-        <Route path="*" element={<h1>Page Not Found</h1>} />
+        {/* Private */}
+        <Route path='admin' element={
+          <>
+            <h1>Navbar</h1>
+            <Outlet />
+          </>
+        }>
+          <Route index element={<Dashboard />} />
+          <Route path="manage" element={<Manage />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
     </BrowserRouter>
   )
