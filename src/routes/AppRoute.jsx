@@ -4,6 +4,8 @@ import About from '../pages/About'
 import Dashboard from '../pages/admin/Dashboard'
 import Manage from '../pages/admin/Manage'
 import NotFound from   '../pages/NotFound'
+import Layout from '../layouts/Layout'
+import LayoutAdmin from '../layouts/LayoutAdmin'
 
 const AppRoute = () => {
   return (
@@ -11,25 +13,15 @@ const AppRoute = () => {
       <Routes>
 
         {/* Public */}
-        <Route element={
-          <>
-            <h1>Navbar</h1>
-            <Outlet />
-          </>
-        }>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
         </Route>
 
         {/* Private */}
-        <Route path='admin' element={
-          <>
-            <h1>Navbar</h1>
-            <Outlet />
-          </>
-        }>
+        <Route path='admin' element={<LayoutAdmin /> }>
           <Route index element={<Dashboard />} />
-          <Route path="manage" element={<Manage />} />
+          <Route path="manage/:id" element={<Manage />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
