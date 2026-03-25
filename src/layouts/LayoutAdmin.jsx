@@ -3,10 +3,12 @@ import { Outlet } from 'react-router'
 
 const LayoutAdmin = () => {
   return (
-    <div>
-     <Navbar />
-      <Outlet />
-    </div>
+    <>
+      <Navbar />
+      <main className='container'>
+        <Outlet />
+      </main>
+    </>
   )
 }
 

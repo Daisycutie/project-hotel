@@ -6,6 +6,7 @@ import Manage from '../pages/admin/Manage'
 import NotFound from   '../pages/NotFound'
 import Layout from '../layouts/Layout'
 import LayoutAdmin from '../layouts/LayoutAdmin'
+import Camping from '../pages/admin/Camping'
 
 const AppRoute = () => {
   return (
@@ -21,7 +22,9 @@ const AppRoute = () => {
         {/* Private */}
         <Route path='admin' element={<LayoutAdmin /> }>
           <Route index element={<Dashboard />} />
-          <Route path="manage/:id" element={<Manage />} />
+          <Route path="manage" element={<Manage />} />
+          <Route path="camping" element={<Camping />} />
+
         </Route>
 
         <Route path="*" element={<NotFound />} />

@@ -1,15 +1,16 @@
-
 import Navbar from '@/components/navbar/Navbar'
 import { Outlet } from 'react-router'
 
 const Layout = () => {
   return (
-    <div>
-        <Navbar />
+    <>
+      <Navbar />
+
+      <main className='container'>
         <hr />
         <Outlet />
-
-    </div>
+      </main>
+    </>
   )
 }
 
