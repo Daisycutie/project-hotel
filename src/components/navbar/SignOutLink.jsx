@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { toast, Toaster } from "sonner"; 
-import { SignOutButton } from "@clerk/react"; // <-- import ถูกต้อง
+import { SignOutButton } from "@clerk/react"; 
 
 const SignOutLink = () => {
   const handleLogout = () => {

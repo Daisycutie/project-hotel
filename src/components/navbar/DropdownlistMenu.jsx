@@ -13,9 +13,9 @@ const DropdownlistMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className=" flex items-center gap-2">
-          <TextAlignJustify />
-          <UserIcon  />
+        <Button variant="outline" className="flex items-center gap-2 rounded-md shadow-sm ">
+          <TextAlignJustify size={20} />
+          <UserIcon size={24} />
         </Button>
       </DropdownMenuTrigger>
 
@@ -30,6 +30,34 @@ const DropdownlistMenu = () => {
             </Link>
           </DropdownMenuItem>
         ))}
+
+        <DropdownMenuSeparator />
+
+        {/* Login / Register */}
+        {!isSignedIn && (
+          <>
+            <DropdownMenuItem>
+              <SignInButton mode="modal">
+                <span className="text-gray-800 hover:text-blue-500 ">Login</span>
+              </SignInButton>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem>
+              <SignUpButton mode="modal">
+                <span className="text-gray-800 hover:text-blue-500 ">Register</span>
+              </SignUpButton>
+            </DropdownMenuItem>
+          </>
+        )}
+
+        {/* Logout */}
+        {isSignedIn && (
+          <DropdownMenuItem>
+            <span className="text-gray-800  hover:text-red-500 "><SignOutLink /></span>
+              
+          </DropdownMenuItem>
+        )}
+
       </DropdownMenuContent>
     </DropdownMenu>
   );
